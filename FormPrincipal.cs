@@ -28,5 +28,17 @@ namespace BibliotecaN
             FormLivros form = new FormLivros();
             form.ShowDialog();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormClientes form = new FormClientes();
+            form.ShowDialog();
+        }
+
+        private void emprestimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEmprestimos form = new FormEmprestimos();
+            form.ShowDialog();
+        }
     }
 }

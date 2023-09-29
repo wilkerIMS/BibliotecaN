@@ -21,28 +21,46 @@ namespace BibliotecaN
         {
             this.Validate();
             this.livrosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bilbliotecaDataSet);
+            this.tableAdapterManager.UpdateAll(this.bibliotecaDataSet);
 
         }
 
         private void FormLivros_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bibliotecaDataSet.Autores' table. You can move, or remove it, as needed.
+            this.autoresTableAdapter.Fill(this.bibliotecaDataSet.Autores);
+            // TODO: This line of code loads data into the 'bibliotecaDataSet.Livros' table. You can move, or remove it, as needed.
+            this.livrosTableAdapter.Fill(this.bibliotecaDataSet.Livros);
             // TODO: This line of code loads data into the 'bilbliotecaDataSet.Autores' table. You can move, or remove it, as needed.
-            this.autoresTableAdapter.Fill(this.bilbliotecaDataSet.Autores);
+            this.autoresTableAdapter.Fill(this.bibliotecaDataSet.Autores);
             // TODO: This line of code loads data into the 'bilbliotecaDataSet.Livros' table. You can move, or remove it, as needed.
-            this.livrosTableAdapter.Fill(this.bilbliotecaDataSet.Livros);
+            this.livrosTableAdapter.Fill(this.bibliotecaDataSet.Livros);
 
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            Guid livroId = new Guid();
-            //txtLivroID.Text = livroId.ToString();
+            Guid livroId = Guid.NewGuid();
+            txtLivroID.Text = livroId.ToString();
         }
 
         private void txtLivroID_TextChanged(object sender, EventArgs e)
         {
-            txtLivroID.Text = new Guid().ToString();
+            
+        }
+
+        private void livrosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.livrosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bibliotecaDataSet);
+
+        }
+
+        private void bindingNavigatorAddNewItem_Click_1(object sender, EventArgs e)
+        {
+            Guid id = Guid.NewGuid();
+            txtLivroID.Text = id.ToString();
         }
     }
 }

@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="BilbliotecaDataSet" targetNamespace="http://tempuri.org/BilbliotecaDataSet.xsd" xmlns:mstns="http://tempuri.org/BilbliotecaDataSet.xsd" xmlns="http://tempuri.org/BilbliotecaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="BibliotecaDataSet" targetNamespace="http://tempuri.org/BibliotecaDataSet.xsd" xmlns:mstns="http://tempuri.org/BibliotecaDataSet.xsd" xmlns="http://tempuri.org/BibliotecaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BilbliotecaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BilbliotecaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BibliotecaN.Properties.Settings.GlobalReference.Default.BilbliotecaConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BibliotecaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BibliotecaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BibliotecaN.Properties.Settings.GlobalReference.Default.BibliotecaConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AutoresTableAdapter" GeneratorDataComponentClassName="AutoresTableAdapter" Name="Autores" UserDataComponentName="AutoresTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BilbliotecaConnectionString (Settings)" DbObjectName="Bilblioteca.dbo.Autores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BibliotecaConnectionString (Settings)" DbObjectName="Biblioteca.dbo.Autores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Autores] WHERE (([AutorId] = @Original_AutorId) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull_DataNascimento = 1 AND [DataNascimento] IS NULL) OR ([DataNascimento] = @Original_DataNascimento)) AND ((@IsNull_Nacionalidade = 1 AND [Nacionalidade] IS NULL) OR ([Nacionalidade] = @Original_Nacionalidade)))</CommandText>
@@ -73,7 +73,7 @@ SELECT AutorId, Nome, DataNascimento, Nacionalidade FROM Autores WHERE (AutorId 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClientesTableAdapter" GeneratorDataComponentClassName="ClientesTableAdapter" Name="Clientes" UserDataComponentName="ClientesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BilbliotecaConnectionString (Settings)" DbObjectName="Bilblioteca.dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BibliotecaConnectionString (Settings)" DbObjectName="Biblioteca.dbo.Clientes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Clientes] WHERE (([ClienteId] = @Original_ClienteId) AND ((@IsNull_Nome = 1 AND [Nome] IS NULL) OR ([Nome] = @Original_Nome)) AND ((@IsNull_Endereco = 1 AND [Endereco] IS NULL) OR ([Endereco] = @Original_Endereco)) AND ((@IsNull_Telefone = 1 AND [Telefone] IS NULL) OR ([Telefone] = @Original_Telefone)))</CommandText>
@@ -137,10 +137,10 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmprestimosTableAdapter" GeneratorDataComponentClassName="EmprestimosTableAdapter" Name="Emprestimos" UserDataComponentName="EmprestimosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BilbliotecaConnectionString (Settings)" DbObjectName="Bilblioteca.dbo.Emprestimos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BibliotecaConnectionString (Settings)" DbObjectName="Biblioteca.dbo.Emprestimos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Emprestimos] WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDvolucao = 1 AND [DataDvolucao] IS NULL) OR ([DataDvolucao] = @Original_DataDvolucao)))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[Emprestimos] WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDevolucao = 1 AND [DataDevolucao] IS NULL) OR ([DataDevolucao] = @Original_DataDevolucao)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_EmprestimoId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="EmprestimoId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LivroId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -149,40 +149,40 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_ClienteId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="ClienteId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DataEmprestimo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DataEmprestimo" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_DataEmprestimo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataEmprestimo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DataDvolucao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DataDvolucao" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_DataDvolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDvolucao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DataDevolucao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DataDevolucao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_DataDevolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDevolucao" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Emprestimos] ([EmprestimoId], [LivroId], [ClienteId], [DataEmprestimo], [DataDvolucao]) VALUES (@EmprestimoId, @LivroId, @ClienteId, @DataEmprestimo, @DataDvolucao);
-SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[Emprestimos] ([EmprestimoId], [LivroId], [ClienteId], [DataEmprestimo], [DataDevolucao]) VALUES (@EmprestimoId, @LivroId, @ClienteId, @DataEmprestimo, @DataDevolucao);
+SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@EmprestimoId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="EmprestimoId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@ClienteId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="ClienteId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@DataEmprestimo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataEmprestimo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@DataDvolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDvolucao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@DataDevolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDevolucao" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM dbo.Emprestimos</CommandText>
+                    <CommandText>SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao FROM dbo.Emprestimos</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Emprestimos] SET [EmprestimoId] = @EmprestimoId, [LivroId] = @LivroId, [ClienteId] = @ClienteId, [DataEmprestimo] = @DataEmprestimo, [DataDvolucao] = @DataDvolucao WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDvolucao = 1 AND [DataDvolucao] IS NULL) OR ([DataDvolucao] = @Original_DataDvolucao)));
-SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)</CommandText>
+                    <CommandText>UPDATE [dbo].[Emprestimos] SET [EmprestimoId] = @EmprestimoId, [LivroId] = @LivroId, [ClienteId] = @ClienteId, [DataEmprestimo] = @DataEmprestimo, [DataDevolucao] = @DataDevolucao WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDevolucao = 1 AND [DataDevolucao] IS NULL) OR ([DataDevolucao] = @Original_DataDevolucao)));
+SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@EmprestimoId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="EmprestimoId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@ClienteId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="ClienteId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@DataEmprestimo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataEmprestimo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@DataDvolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDvolucao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@DataDevolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDevolucao" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_EmprestimoId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="EmprestimoId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LivroId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -190,8 +190,8 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_ClienteId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="ClienteId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DataEmprestimo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DataEmprestimo" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_DataEmprestimo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataEmprestimo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DataDvolucao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DataDvolucao" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_DataDvolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDvolucao" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DataDevolucao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DataDevolucao" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_DataDevolucao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="DataDevolucao" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -202,24 +202,22 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
               <Mapping SourceColumn="LivroId" DataSetColumn="LivroId" />
               <Mapping SourceColumn="ClienteId" DataSetColumn="ClienteId" />
               <Mapping SourceColumn="DataEmprestimo" DataSetColumn="DataEmprestimo" />
-              <Mapping SourceColumn="DataDvolucao" DataSetColumn="DataDvolucao" />
+              <Mapping SourceColumn="DataDevolucao" DataSetColumn="DataDevolucao" />
             </Mappings>
             <Sources />
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LivrosTableAdapter" GeneratorDataComponentClassName="LivrosTableAdapter" Name="Livros" UserDataComponentName="LivrosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="BilbliotecaConnectionString (Settings)" DbObjectName="Bilblioteca.dbo.Livros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="BibliotecaConnectionString (Settings)" DbObjectName="Biblioteca.dbo.Livros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Livros] WHERE (([LivrosId] = @Original_LivrosId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_Genero = 1 AND [Genero] IS NULL) OR ([Genero] = @Original_Genero)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[Livros] WHERE (([LivroId] = @Original_LivroId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_LivrosId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivrosId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Titulo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Titulo" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Titulo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Titulo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AutorId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AutorId" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_AutorId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="AutorId" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Genero" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Genero" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Genero" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Genero" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ISBN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ISBN" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ISBN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ISBN" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AnoPublicacao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AnoPublicacao" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -229,13 +227,12 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Livros] ([LivrosId], [Titulo], [AutorId], [Genero], [ISBN], [AnoPublicacao]) VALUES (@LivrosId, @Titulo, @AutorId, @Genero, @ISBN, @AnoPublicacao);
-SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE (LivrosId = @LivrosId)</CommandText>
+                    <CommandText>INSERT INTO [dbo].[Livros] ([LivroId], [Titulo], [AutorId], [ISBN], [AnoPublicacao]) VALUES (@LivroId, @Titulo, @AutorId, @ISBN, @AnoPublicacao);
+SELECT LivroId, Titulo, AutorId, ISBN, AnoPublicacao FROM Livros WHERE (LivroId = @LivroId)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@LivrosId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivrosId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Titulo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Titulo" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@AutorId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="AutorId" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Genero" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Genero" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ISBN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ISBN" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@AnoPublicacao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="AnoPublicacao" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -243,28 +240,25 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM dbo.Livros</CommandText>
+                    <CommandText>SELECT LivroId, Titulo, AutorId, ISBN, AnoPublicacao FROM dbo.Livros</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Livros] SET [LivrosId] = @LivrosId, [Titulo] = @Titulo, [AutorId] = @AutorId, [Genero] = @Genero, [ISBN] = @ISBN, [AnoPublicacao] = @AnoPublicacao WHERE (([LivrosId] = @Original_LivrosId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_Genero = 1 AND [Genero] IS NULL) OR ([Genero] = @Original_Genero)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)));
-SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE (LivrosId = @LivrosId)</CommandText>
+                    <CommandText>UPDATE [dbo].[Livros] SET [LivroId] = @LivroId, [Titulo] = @Titulo, [AutorId] = @AutorId, [ISBN] = @ISBN, [AnoPublicacao] = @AnoPublicacao WHERE (([LivroId] = @Original_LivroId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)));
+SELECT LivroId, Titulo, AutorId, ISBN, AnoPublicacao FROM Livros WHERE (LivroId = @LivroId)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@LivrosId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivrosId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Titulo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Titulo" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@AutorId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="AutorId" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Genero" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Genero" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ISBN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ISBN" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@AnoPublicacao" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="AnoPublicacao" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_LivrosId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivrosId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_LivroId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="LivroId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Titulo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Titulo" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Titulo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Titulo" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AutorId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AutorId" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Guid" Direction="Input" ParameterName="@Original_AutorId" Precision="0" ProviderType="UniqueIdentifier" Scale="0" Size="0" SourceColumn="AutorId" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Genero" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Genero" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Genero" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Genero" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ISBN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ISBN" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ISBN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ISBN" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AnoPublicacao" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AnoPublicacao" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -275,10 +269,9 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="LivrosId" DataSetColumn="LivrosId" />
+              <Mapping SourceColumn="LivroId" DataSetColumn="LivroId" />
               <Mapping SourceColumn="Titulo" DataSetColumn="Titulo" />
               <Mapping SourceColumn="AutorId" DataSetColumn="AutorId" />
-              <Mapping SourceColumn="Genero" DataSetColumn="Genero" />
               <Mapping SourceColumn="ISBN" DataSetColumn="ISBN" />
               <Mapping SourceColumn="AnoPublicacao" DataSetColumn="AnoPublicacao" />
             </Mappings>
@@ -289,7 +282,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="BilbliotecaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BilbliotecaDataSet" msprop:Generator_DataSetName="BilbliotecaDataSet">
+  <xs:element name="BibliotecaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BibliotecaDataSet" msprop:Generator_DataSetName="BibliotecaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Autores" msprop:Generator_RowEvHandlerName="AutoresRowChangeEventHandler" msprop:Generator_RowDeletedName="AutoresRowDeleted" msprop:Generator_RowDeletingName="AutoresRowDeleting" msprop:Generator_RowEvArgName="AutoresRowChangeEvent" msprop:Generator_TablePropName="Autores" msprop:Generator_RowChangedName="AutoresRowChanged" msprop:Generator_RowChangingName="AutoresRowChanging" msprop:Generator_TableClassName="AutoresDataTable" msprop:Generator_RowClassName="AutoresRow" msprop:Generator_TableVarName="tableAutores" msprop:Generator_UserTableName="Autores">
@@ -299,7 +292,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
               <xs:element name="Nome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_UserColumnName="Nome" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="90" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -307,7 +300,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
               <xs:element name="Nacionalidade" msprop:Generator_ColumnPropNameInRow="Nacionalidade" msprop:Generator_ColumnPropNameInTable="NacionalidadeColumn" msprop:Generator_ColumnVarNameInTable="columnNacionalidade" msprop:Generator_UserColumnName="Nacionalidade" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="90" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -321,14 +314,14 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
               <xs:element name="Nome" msprop:Generator_ColumnPropNameInRow="Nome" msprop:Generator_ColumnPropNameInTable="NomeColumn" msprop:Generator_ColumnVarNameInTable="columnNome" msprop:Generator_UserColumnName="Nome" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="80" />
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Endereco" msprop:Generator_ColumnPropNameInRow="Endereco" msprop:Generator_ColumnPropNameInTable="EnderecoColumn" msprop:Generator_ColumnVarNameInTable="columnEndereco" msprop:Generator_UserColumnName="Endereco" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -349,29 +342,22 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
               <xs:element name="LivroId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="LivroId" msprop:Generator_ColumnPropNameInTable="LivroIdColumn" msprop:Generator_ColumnVarNameInTable="columnLivroId" msprop:Generator_UserColumnName="LivroId" type="xs:string" minOccurs="0" />
               <xs:element name="ClienteId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="ClienteId" msprop:Generator_ColumnPropNameInTable="ClienteIdColumn" msprop:Generator_ColumnVarNameInTable="columnClienteId" msprop:Generator_UserColumnName="ClienteId" type="xs:string" minOccurs="0" />
               <xs:element name="DataEmprestimo" msprop:Generator_ColumnPropNameInRow="DataEmprestimo" msprop:Generator_ColumnPropNameInTable="DataEmprestimoColumn" msprop:Generator_ColumnVarNameInTable="columnDataEmprestimo" msprop:Generator_UserColumnName="DataEmprestimo" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="DataDvolucao" msprop:Generator_ColumnPropNameInRow="DataDvolucao" msprop:Generator_ColumnPropNameInTable="DataDvolucaoColumn" msprop:Generator_ColumnVarNameInTable="columnDataDvolucao" msprop:Generator_UserColumnName="DataDvolucao" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DataDevolucao" msprop:Generator_ColumnPropNameInRow="DataDevolucao" msprop:Generator_ColumnPropNameInTable="DataDevolucaoColumn" msprop:Generator_ColumnVarNameInTable="columnDataDevolucao" msprop:Generator_UserColumnName="DataDevolucao" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="Livros" msprop:Generator_RowEvHandlerName="LivrosRowChangeEventHandler" msprop:Generator_RowDeletedName="LivrosRowDeleted" msprop:Generator_RowDeletingName="LivrosRowDeleting" msprop:Generator_RowEvArgName="LivrosRowChangeEvent" msprop:Generator_TablePropName="Livros" msprop:Generator_RowChangedName="LivrosRowChanged" msprop:Generator_RowChangingName="LivrosRowChanging" msprop:Generator_TableClassName="LivrosDataTable" msprop:Generator_RowClassName="LivrosRow" msprop:Generator_TableVarName="tableLivros" msprop:Generator_UserTableName="Livros">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="LivrosId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="LivrosId" msprop:Generator_ColumnPropNameInTable="LivrosIdColumn" msprop:Generator_ColumnVarNameInTable="columnLivrosId" msprop:Generator_UserColumnName="LivrosId" type="xs:string" />
+              <xs:element name="LivroId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="LivroId" msprop:Generator_ColumnPropNameInTable="LivroIdColumn" msprop:Generator_ColumnVarNameInTable="columnLivroId" msprop:Generator_UserColumnName="LivroId" type="xs:string" />
               <xs:element name="Titulo" msprop:Generator_ColumnPropNameInRow="Titulo" msprop:Generator_ColumnPropNameInTable="TituloColumn" msprop:Generator_ColumnVarNameInTable="columnTitulo" msprop:Generator_UserColumnName="Titulo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="90" />
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="AutorId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnPropNameInRow="AutorId" msprop:Generator_ColumnPropNameInTable="AutorIdColumn" msprop:Generator_ColumnVarNameInTable="columnAutorId" msprop:Generator_UserColumnName="AutorId" type="xs:string" minOccurs="0" />
-              <xs:element name="Genero" msprop:Generator_ColumnPropNameInRow="Genero" msprop:Generator_ColumnPropNameInTable="GeneroColumn" msprop:Generator_ColumnVarNameInTable="columnGenero" msprop:Generator_UserColumnName="Genero" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="60" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="ISBN" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_ColumnVarNameInTable="columnISBN" msprop:Generator_UserColumnName="ISBN" type="xs:int" minOccurs="0" />
               <xs:element name="AnoPublicacao" msprop:Generator_ColumnPropNameInRow="AnoPublicacao" msprop:Generator_ColumnPropNameInTable="AnoPublicacaoColumn" msprop:Generator_ColumnVarNameInTable="columnAnoPublicacao" msprop:Generator_UserColumnName="AnoPublicacao" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
@@ -393,13 +379,14 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
     </xs:unique>
     <xs:unique name="Livros_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Livros" />
-      <xs:field xpath="mstns:LivrosId" />
+      <xs:field xpath="mstns:LivroId" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_Emprestimos_LivrosId" msdata:parent="Livros" msdata:child="Emprestimos" msdata:parentkey="LivrosId" msdata:childkey="LivroId" msprop:Generator_UserParentTable="Livros" msprop:Generator_UserChildTable="Emprestimos" msprop:Generator_RelationVarName="relationfk_Emprestimos_LivrosId" msprop:Generator_UserRelationName="fk_Emprestimos_LivrosId" msprop:Generator_ChildPropName="GetEmprestimosRows" msprop:Generator_ParentPropName="LivrosRow" />
-      <msdata:Relationship name="fk_Emprstimos_ClienteId" msdata:parent="Clientes" msdata:child="Emprestimos" msdata:parentkey="ClienteId" msdata:childkey="ClienteId" msprop:Generator_UserParentTable="Clientes" msprop:Generator_UserChildTable="Emprestimos" msprop:Generator_RelationVarName="relationfk_Emprstimos_ClienteId" msprop:Generator_ChildPropName="GetEmprestimosRows" msprop:Generator_ParentPropName="ClientesRow" msprop:Generator_UserRelationName="fk_Emprstimos_ClienteId" />
+      <msdata:Relationship name="fk_Emprestimos_ClienteId" msdata:parent="Clientes" msdata:child="Emprestimos" msdata:parentkey="ClienteId" msdata:childkey="ClienteId" msprop:Generator_UserParentTable="Clientes" msprop:Generator_UserChildTable="Emprestimos" msprop:Generator_RelationVarName="relationfk_Emprestimos_ClienteId" msprop:Generator_ChildPropName="GetEmprestimosRows" msprop:Generator_ParentPropName="ClientesRow" msprop:Generator_UserRelationName="fk_Emprestimos_ClienteId" />
+      <msdata:Relationship name="fk_Emprestimos_LivroId" msdata:parent="Livros" msdata:child="Emprestimos" msdata:parentkey="LivroId" msdata:childkey="LivroId" msprop:Generator_UserParentTable="Livros" msprop:Generator_UserChildTable="Emprestimos" msprop:Generator_RelationVarName="relationfk_Emprestimos_LivroId" msprop:Generator_UserRelationName="fk_Emprestimos_LivroId" msprop:Generator_ChildPropName="GetEmprestimosRows" msprop:Generator_ParentPropName="LivrosRow" />
+      <msdata:Relationship name="fk_Livros_AutorId" msdata:parent="Autores" msdata:child="Livros" msdata:parentkey="AutorId" msdata:childkey="AutorId" msprop:Generator_UserParentTable="Autores" msprop:Generator_UserChildTable="Livros" msprop:Generator_RelationVarName="relationfk_Livros_AutorId" msprop:Generator_ChildPropName="GetLivrosRows" msprop:Generator_ParentPropName="AutoresRow" msprop:Generator_UserRelationName="fk_Livros_AutorId" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

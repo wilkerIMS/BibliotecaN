@@ -1,6 +1,6 @@
 ﻿namespace BibliotecaN
 {
-    partial class FormAutores
+    partial class FormClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,19 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAutores));
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtNacionalidade = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
+            this.txtNomeCliente = new System.Windows.Forms.TextBox();
+            this.txtEndereco = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpDataNascimentoAutor = new System.Windows.Forms.DateTimePicker();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.bibliotecaDataSet = new BibliotecaN.BibliotecaDataSet();
-            this.autoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.autoresTableAdapter = new BibliotecaN.BibliotecaDataSetTableAdapters.AutoresTableAdapter();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesTableAdapter = new BibliotecaN.BibliotecaDataSetTableAdapters.ClientesTableAdapter();
             this.tableAdapterManager = new BibliotecaN.BibliotecaDataSetTableAdapters.TableAdapterManager();
-            this.autoresBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.clientesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -53,109 +51,94 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.autoresBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.autoresDataGridView = new System.Windows.Forms.DataGridView();
+            this.clientesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.clientesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mtbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtClienteId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.autoresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.autoresBindingNavigator)).BeginInit();
-            this.autoresBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.autoresDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingNavigator)).BeginInit();
+            this.clientesBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNome
+            // txtNomeCliente
             // 
-            this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autoresBindingSource, "Nome", true));
-            this.txtNome.Location = new System.Drawing.Point(44, 68);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(225, 20);
-            this.txtNome.TabIndex = 3;
+            this.txtNomeCliente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "Nome", true));
+            this.txtNomeCliente.Location = new System.Drawing.Point(88, 91);
+            this.txtNomeCliente.Name = "txtNomeCliente";
+            this.txtNomeCliente.Size = new System.Drawing.Size(226, 20);
+            this.txtNomeCliente.TabIndex = 0;
             // 
-            // txtNacionalidade
+            // txtEndereco
             // 
-            this.txtNacionalidade.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autoresBindingSource, "Nacionalidade", true));
-            this.txtNacionalidade.Location = new System.Drawing.Point(44, 133);
-            this.txtNacionalidade.Name = "txtNacionalidade";
-            this.txtNacionalidade.Size = new System.Drawing.Size(225, 20);
-            this.txtNacionalidade.TabIndex = 4;
+            this.txtEndereco.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "Endereco", true));
+            this.txtEndereco.Location = new System.Drawing.Point(88, 148);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Size = new System.Drawing.Size(454, 20);
+            this.txtEndereco.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 52);
+            this.label1.Location = new System.Drawing.Point(88, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Nome";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 117);
+            this.label2.Location = new System.Drawing.Point(412, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Nacionalidade";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Telefone";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 176);
+            this.label3.Location = new System.Drawing.Point(88, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Data de Nascimento";
-            // 
-            // dtpDataNascimentoAutor
-            // 
-            this.dtpDataNascimentoAutor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autoresBindingSource, "DataNascimento", true));
-            this.dtpDataNascimentoAutor.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.autoresBindingSource, "DataNascimento", true));
-            this.dtpDataNascimentoAutor.Location = new System.Drawing.Point(44, 192);
-            this.dtpDataNascimentoAutor.Name = "dtpDataNascimentoAutor";
-            this.dtpDataNascimentoAutor.Size = new System.Drawing.Size(225, 20);
-            this.dtpDataNascimentoAutor.TabIndex = 8;
-            // 
-            // txtId
-            // 
-            this.txtId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.autoresBindingSource, "AutorId", true));
-            this.txtId.Location = new System.Drawing.Point(443, 68);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(251, 20);
-            this.txtId.TabIndex = 9;
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Endereço";
             // 
             // bibliotecaDataSet
             // 
             this.bibliotecaDataSet.DataSetName = "BibliotecaDataSet";
             this.bibliotecaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // autoresBindingSource
+            // clientesBindingSource
             // 
-            this.autoresBindingSource.DataMember = "Autores";
-            this.autoresBindingSource.DataSource = this.bibliotecaDataSet;
+            this.clientesBindingSource.DataMember = "Clientes";
+            this.clientesBindingSource.DataSource = this.bibliotecaDataSet;
             // 
-            // autoresTableAdapter
+            // clientesTableAdapter
             // 
-            this.autoresTableAdapter.ClearBeforeFill = true;
+            this.clientesTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.AutoresTableAdapter = this.autoresTableAdapter;
+            this.tableAdapterManager.AutoresTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ClientesTableAdapter = null;
+            this.tableAdapterManager.ClientesTableAdapter = this.clientesTableAdapter;
             this.tableAdapterManager.EmprestimosTableAdapter = null;
             this.tableAdapterManager.LivrosTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = BibliotecaN.BibliotecaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // autoresBindingNavigator
+            // clientesBindingNavigator
             // 
-            this.autoresBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.autoresBindingNavigator.BindingSource = this.autoresBindingSource;
-            this.autoresBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.autoresBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.autoresBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.clientesBindingNavigator.BindingSource = this.clientesBindingSource;
+            this.clientesBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.clientesBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.clientesBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -167,17 +150,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.autoresBindingNavigatorSaveItem});
-            this.autoresBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.autoresBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.autoresBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.autoresBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.autoresBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.autoresBindingNavigator.Name = "autoresBindingNavigator";
-            this.autoresBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.autoresBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.autoresBindingNavigator.TabIndex = 10;
-            this.autoresBindingNavigator.Text = "bindingNavigator1";
+            this.clientesBindingNavigatorSaveItem});
+            this.clientesBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.clientesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.clientesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.clientesBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.clientesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.clientesBindingNavigator.Name = "clientesBindingNavigator";
+            this.clientesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.clientesBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.clientesBindingNavigator.TabIndex = 6;
+            this.clientesBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -255,7 +238,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click_1);
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -266,34 +249,34 @@
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
-            // autoresBindingNavigatorSaveItem
+            // clientesBindingNavigatorSaveItem
             // 
-            this.autoresBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.autoresBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("autoresBindingNavigatorSaveItem.Image")));
-            this.autoresBindingNavigatorSaveItem.Name = "autoresBindingNavigatorSaveItem";
-            this.autoresBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.autoresBindingNavigatorSaveItem.Text = "Save Data";
-            this.autoresBindingNavigatorSaveItem.Click += new System.EventHandler(this.autoresBindingNavigatorSaveItem_Click_1);
+            this.clientesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.clientesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesBindingNavigatorSaveItem.Image")));
+            this.clientesBindingNavigatorSaveItem.Name = "clientesBindingNavigatorSaveItem";
+            this.clientesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.clientesBindingNavigatorSaveItem.Text = "Save Data";
+            this.clientesBindingNavigatorSaveItem.Click += new System.EventHandler(this.clientesBindingNavigatorSaveItem_Click);
             // 
-            // autoresDataGridView
+            // clientesDataGridView
             // 
-            this.autoresDataGridView.AutoGenerateColumns = false;
-            this.autoresDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.autoresDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clientesDataGridView.AutoGenerateColumns = false;
+            this.clientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.autoresDataGridView.DataSource = this.autoresBindingSource;
-            this.autoresDataGridView.Location = new System.Drawing.Point(9, 250);
-            this.autoresDataGridView.Name = "autoresDataGridView";
-            this.autoresDataGridView.Size = new System.Drawing.Size(685, 220);
-            this.autoresDataGridView.TabIndex = 10;
+            this.clientesDataGridView.DataSource = this.clientesBindingSource;
+            this.clientesDataGridView.Location = new System.Drawing.Point(124, 322);
+            this.clientesDataGridView.Name = "clientesDataGridView";
+            this.clientesDataGridView.Size = new System.Drawing.Size(418, 220);
+            this.clientesDataGridView.TabIndex = 7;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "AutorId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "AutorId";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ClienteId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ClienteId";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
@@ -304,61 +287,73 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "DataNascimento";
-            this.dataGridViewTextBoxColumn3.HeaderText = "DataNascimento";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Endereco";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Endereco";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Nacionalidade";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nacionalidade";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Telefone";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Telefone";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // FormAutores
+            // mtbTelefone
+            // 
+            this.mtbTelefone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "Telefone", true));
+            this.mtbTelefone.Location = new System.Drawing.Point(415, 91);
+            this.mtbTelefone.Mask = "(99) 99000-0000";
+            this.mtbTelefone.Name = "mtbTelefone";
+            this.mtbTelefone.Size = new System.Drawing.Size(127, 20);
+            this.mtbTelefone.TabIndex = 8;
+            // 
+            // txtClienteId
+            // 
+            this.txtClienteId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "ClienteId", true));
+            this.txtClienteId.Location = new System.Drawing.Point(183, 276);
+            this.txtClienteId.Name = "txtClienteId";
+            this.txtClienteId.Size = new System.Drawing.Size(100, 20);
+            this.txtClienteId.TabIndex = 9;
+            // 
+            // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 482);
-            this.Controls.Add(this.autoresBindingNavigator);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.dtpDataNascimentoAutor);
+            this.ClientSize = new System.Drawing.Size(800, 562);
+            this.Controls.Add(this.txtClienteId);
+            this.Controls.Add(this.mtbTelefone);
+            this.Controls.Add(this.clientesDataGridView);
+            this.Controls.Add(this.clientesBindingNavigator);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNacionalidade);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.autoresDataGridView);
-            this.Name = "FormAutores";
-            this.Text = "FormAutores";
-            this.Load += new System.EventHandler(this.FormAutores_Load);
+            this.Controls.Add(this.txtEndereco);
+            this.Controls.Add(this.txtNomeCliente);
+            this.Name = "FormClientes";
+            this.Text = "FormClientes";
+            this.Load += new System.EventHandler(this.FormClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bibliotecaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.autoresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.autoresBindingNavigator)).EndInit();
-            this.autoresBindingNavigator.ResumeLayout(false);
-            this.autoresBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.autoresDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingNavigator)).EndInit();
+            this.clientesBindingNavigator.ResumeLayout(false);
+            this.clientesBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtNacionalidade;
+
+        private System.Windows.Forms.TextBox txtNomeCliente;
+        private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpDataNascimentoAutor;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autorIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataNascimentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nacionalidadeDataGridViewTextBoxColumn;
         private BibliotecaDataSet bibliotecaDataSet;
-        private System.Windows.Forms.BindingSource autoresBindingSource;
-        private BibliotecaDataSetTableAdapters.AutoresTableAdapter autoresTableAdapter;
+        private System.Windows.Forms.BindingSource clientesBindingSource;
+        private BibliotecaDataSetTableAdapters.ClientesTableAdapter clientesTableAdapter;
         private BibliotecaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator autoresBindingNavigator;
+        private System.Windows.Forms.BindingNavigator clientesBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -370,11 +365,13 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton autoresBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView autoresDataGridView;
+        private System.Windows.Forms.ToolStripButton clientesBindingNavigatorSaveItem;
+        private System.Windows.Forms.DataGridView clientesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.MaskedTextBox mtbTelefone;
+        private System.Windows.Forms.TextBox txtClienteId;
     }
 }

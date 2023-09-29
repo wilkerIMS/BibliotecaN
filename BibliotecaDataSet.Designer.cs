@@ -20,9 +20,9 @@ namespace BibliotecaN {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("BilbliotecaDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("BibliotecaDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class BilbliotecaDataSet : global::System.Data.DataSet {
+    public partial class BibliotecaDataSet : global::System.Data.DataSet {
         
         private AutoresDataTable tableAutores;
         
@@ -32,15 +32,17 @@ namespace BibliotecaN {
         
         private LivrosDataTable tableLivros;
         
-        private global::System.Data.DataRelation relationfk_Emprestimos_LivrosId;
+        private global::System.Data.DataRelation relationfk_Emprestimos_ClienteId;
         
-        private global::System.Data.DataRelation relationfk_Emprstimos_ClienteId;
+        private global::System.Data.DataRelation relationfk_Emprestimos_LivroId;
+        
+        private global::System.Data.DataRelation relationfk_Livros_AutorId;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public BilbliotecaDataSet() {
+        public BibliotecaDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -51,7 +53,7 @@ namespace BibliotecaN {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected BilbliotecaDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected BibliotecaDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -176,7 +178,7 @@ namespace BibliotecaN {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            BilbliotecaDataSet cln = ((BilbliotecaDataSet)(base.Clone()));
+            BibliotecaDataSet cln = ((BibliotecaDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -270,16 +272,17 @@ namespace BibliotecaN {
                     this.tableLivros.InitVars();
                 }
             }
-            this.relationfk_Emprestimos_LivrosId = this.Relations["fk_Emprestimos_LivrosId"];
-            this.relationfk_Emprstimos_ClienteId = this.Relations["fk_Emprstimos_ClienteId"];
+            this.relationfk_Emprestimos_ClienteId = this.Relations["fk_Emprestimos_ClienteId"];
+            this.relationfk_Emprestimos_LivroId = this.Relations["fk_Emprestimos_LivroId"];
+            this.relationfk_Livros_AutorId = this.Relations["fk_Livros_AutorId"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "BilbliotecaDataSet";
+            this.DataSetName = "BibliotecaDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/BilbliotecaDataSet.xsd";
+            this.Namespace = "http://tempuri.org/BibliotecaDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableAutores = new AutoresDataTable();
@@ -290,14 +293,18 @@ namespace BibliotecaN {
             base.Tables.Add(this.tableEmprestimos);
             this.tableLivros = new LivrosDataTable();
             base.Tables.Add(this.tableLivros);
-            this.relationfk_Emprestimos_LivrosId = new global::System.Data.DataRelation("fk_Emprestimos_LivrosId", new global::System.Data.DataColumn[] {
-                        this.tableLivros.LivrosIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableEmprestimos.LivroIdColumn}, false);
-            this.Relations.Add(this.relationfk_Emprestimos_LivrosId);
-            this.relationfk_Emprstimos_ClienteId = new global::System.Data.DataRelation("fk_Emprstimos_ClienteId", new global::System.Data.DataColumn[] {
+            this.relationfk_Emprestimos_ClienteId = new global::System.Data.DataRelation("fk_Emprestimos_ClienteId", new global::System.Data.DataColumn[] {
                         this.tableClientes.ClienteIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableEmprestimos.ClienteIdColumn}, false);
-            this.Relations.Add(this.relationfk_Emprstimos_ClienteId);
+            this.Relations.Add(this.relationfk_Emprestimos_ClienteId);
+            this.relationfk_Emprestimos_LivroId = new global::System.Data.DataRelation("fk_Emprestimos_LivroId", new global::System.Data.DataColumn[] {
+                        this.tableLivros.LivroIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableEmprestimos.LivroIdColumn}, false);
+            this.Relations.Add(this.relationfk_Emprestimos_LivroId);
+            this.relationfk_Livros_AutorId = new global::System.Data.DataRelation("fk_Livros_AutorId", new global::System.Data.DataColumn[] {
+                        this.tableAutores.AutorIdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLivros.AutorIdColumn}, false);
+            this.Relations.Add(this.relationfk_Livros_AutorId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -335,7 +342,7 @@ namespace BibliotecaN {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            BilbliotecaDataSet ds = new BilbliotecaDataSet();
+            BibliotecaDataSet ds = new BibliotecaDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -565,8 +572,8 @@ namespace BibliotecaN {
                                 this.columnAutorId}, true));
                 this.columnAutorId.AllowDBNull = false;
                 this.columnAutorId.Unique = true;
-                this.columnNome.MaxLength = 50;
-                this.columnNacionalidade.MaxLength = 50;
+                this.columnNome.MaxLength = 90;
+                this.columnNacionalidade.MaxLength = 90;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -634,7 +641,7 @@ namespace BibliotecaN {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BilbliotecaDataSet ds = new BilbliotecaDataSet();
+                BibliotecaDataSet ds = new BibliotecaDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -867,8 +874,8 @@ namespace BibliotecaN {
                                 this.columnClienteId}, true));
                 this.columnClienteId.AllowDBNull = false;
                 this.columnClienteId.Unique = true;
-                this.columnNome.MaxLength = 80;
-                this.columnEndereco.MaxLength = 100;
+                this.columnNome.MaxLength = 100;
+                this.columnEndereco.MaxLength = 150;
                 this.columnTelefone.MaxLength = 15;
             }
             
@@ -937,7 +944,7 @@ namespace BibliotecaN {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BilbliotecaDataSet ds = new BilbliotecaDataSet();
+                BibliotecaDataSet ds = new BibliotecaDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1011,7 +1018,7 @@ namespace BibliotecaN {
             
             private global::System.Data.DataColumn columnDataEmprestimo;
             
-            private global::System.Data.DataColumn columnDataDvolucao;
+            private global::System.Data.DataColumn columnDataDevolucao;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1080,9 +1087,9 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DataDvolucaoColumn {
+            public global::System.Data.DataColumn DataDevolucaoColumn {
                 get {
-                    return this.columnDataDvolucao;
+                    return this.columnDataDevolucao;
                 }
             }
             
@@ -1123,19 +1130,19 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EmprestimosRow AddEmprestimosRow(System.Guid EmprestimoId, LivrosRow parentLivrosRowByfk_Emprestimos_LivrosId, ClientesRow parentClientesRowByfk_Emprstimos_ClienteId, System.DateTime DataEmprestimo, System.DateTime DataDvolucao) {
+            public EmprestimosRow AddEmprestimosRow(System.Guid EmprestimoId, LivrosRow parentLivrosRowByfk_Emprestimos_LivroId, ClientesRow parentClientesRowByfk_Emprestimos_ClienteId, System.DateTime DataEmprestimo, System.DateTime DataDevolucao) {
                 EmprestimosRow rowEmprestimosRow = ((EmprestimosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         EmprestimoId,
                         null,
                         null,
                         DataEmprestimo,
-                        DataDvolucao};
-                if ((parentLivrosRowByfk_Emprestimos_LivrosId != null)) {
-                    columnValuesArray[1] = parentLivrosRowByfk_Emprestimos_LivrosId[0];
+                        DataDevolucao};
+                if ((parentLivrosRowByfk_Emprestimos_LivroId != null)) {
+                    columnValuesArray[1] = parentLivrosRowByfk_Emprestimos_LivroId[0];
                 }
-                if ((parentClientesRowByfk_Emprstimos_ClienteId != null)) {
-                    columnValuesArray[2] = parentClientesRowByfk_Emprstimos_ClienteId[0];
+                if ((parentClientesRowByfk_Emprestimos_ClienteId != null)) {
+                    columnValuesArray[2] = parentClientesRowByfk_Emprestimos_ClienteId[0];
                 }
                 rowEmprestimosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmprestimosRow);
@@ -1170,7 +1177,7 @@ namespace BibliotecaN {
                 this.columnLivroId = base.Columns["LivroId"];
                 this.columnClienteId = base.Columns["ClienteId"];
                 this.columnDataEmprestimo = base.Columns["DataEmprestimo"];
-                this.columnDataDvolucao = base.Columns["DataDvolucao"];
+                this.columnDataDevolucao = base.Columns["DataDevolucao"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1184,8 +1191,8 @@ namespace BibliotecaN {
                 base.Columns.Add(this.columnClienteId);
                 this.columnDataEmprestimo = new global::System.Data.DataColumn("DataEmprestimo", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDataEmprestimo);
-                this.columnDataDvolucao = new global::System.Data.DataColumn("DataDvolucao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDataDvolucao);
+                this.columnDataDevolucao = new global::System.Data.DataColumn("DataDevolucao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataDevolucao);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnEmprestimoId}, true));
                 this.columnEmprestimoId.AllowDBNull = false;
@@ -1257,7 +1264,7 @@ namespace BibliotecaN {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BilbliotecaDataSet ds = new BilbliotecaDataSet();
+                BibliotecaDataSet ds = new BibliotecaDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1323,13 +1330,11 @@ namespace BibliotecaN {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class LivrosDataTable : global::System.Data.TypedTableBase<LivrosRow> {
             
-            private global::System.Data.DataColumn columnLivrosId;
+            private global::System.Data.DataColumn columnLivroId;
             
             private global::System.Data.DataColumn columnTitulo;
             
             private global::System.Data.DataColumn columnAutorId;
-            
-            private global::System.Data.DataColumn columnGenero;
             
             private global::System.Data.DataColumn columnISBN;
             
@@ -1370,9 +1375,9 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn LivrosIdColumn {
+            public global::System.Data.DataColumn LivroIdColumn {
                 get {
-                    return this.columnLivrosId;
+                    return this.columnLivroId;
                 }
             }
             
@@ -1389,14 +1394,6 @@ namespace BibliotecaN {
             public global::System.Data.DataColumn AutorIdColumn {
                 get {
                     return this.columnAutorId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn GeneroColumn {
-                get {
-                    return this.columnGenero;
                 }
             }
             
@@ -1453,15 +1450,17 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public LivrosRow AddLivrosRow(System.Guid LivrosId, string Titulo, System.Guid AutorId, string Genero, int ISBN, System.DateTime AnoPublicacao) {
+            public LivrosRow AddLivrosRow(System.Guid LivroId, string Titulo, AutoresRow parentAutoresRowByfk_Livros_AutorId, int ISBN, System.DateTime AnoPublicacao) {
                 LivrosRow rowLivrosRow = ((LivrosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        LivrosId,
+                        LivroId,
                         Titulo,
-                        AutorId,
-                        Genero,
+                        null,
                         ISBN,
                         AnoPublicacao};
+                if ((parentAutoresRowByfk_Livros_AutorId != null)) {
+                    columnValuesArray[2] = parentAutoresRowByfk_Livros_AutorId[0];
+                }
                 rowLivrosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLivrosRow);
                 return rowLivrosRow;
@@ -1469,9 +1468,9 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public LivrosRow FindByLivrosId(System.Guid LivrosId) {
+            public LivrosRow FindByLivroId(System.Guid LivroId) {
                 return ((LivrosRow)(this.Rows.Find(new object[] {
-                            LivrosId})));
+                            LivroId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1491,10 +1490,9 @@ namespace BibliotecaN {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnLivrosId = base.Columns["LivrosId"];
+                this.columnLivroId = base.Columns["LivroId"];
                 this.columnTitulo = base.Columns["Titulo"];
                 this.columnAutorId = base.Columns["AutorId"];
-                this.columnGenero = base.Columns["Genero"];
                 this.columnISBN = base.Columns["ISBN"];
                 this.columnAnoPublicacao = base.Columns["AnoPublicacao"];
             }
@@ -1502,24 +1500,21 @@ namespace BibliotecaN {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnLivrosId = new global::System.Data.DataColumn("LivrosId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLivrosId);
+                this.columnLivroId = new global::System.Data.DataColumn("LivroId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLivroId);
                 this.columnTitulo = new global::System.Data.DataColumn("Titulo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitulo);
                 this.columnAutorId = new global::System.Data.DataColumn("AutorId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutorId);
-                this.columnGenero = new global::System.Data.DataColumn("Genero", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGenero);
                 this.columnISBN = new global::System.Data.DataColumn("ISBN", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnISBN);
                 this.columnAnoPublicacao = new global::System.Data.DataColumn("AnoPublicacao", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAnoPublicacao);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnLivrosId}, true));
-                this.columnLivrosId.AllowDBNull = false;
-                this.columnLivrosId.Unique = true;
-                this.columnTitulo.MaxLength = 90;
-                this.columnGenero.MaxLength = 60;
+                                this.columnLivroId}, true));
+                this.columnLivroId.AllowDBNull = false;
+                this.columnLivroId.Unique = true;
+                this.columnTitulo.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1587,7 +1582,7 @@ namespace BibliotecaN {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BilbliotecaDataSet ds = new BilbliotecaDataSet();
+                BibliotecaDataSet ds = new BibliotecaDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1754,6 +1749,17 @@ namespace BibliotecaN {
             public void SetNacionalidadeNull() {
                 this[this.tableAutores.NacionalidadeColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public LivrosRow[] GetLivrosRows() {
+                if ((this.Table.ChildRelations["fk_Livros_AutorId"] == null)) {
+                    return new LivrosRow[0];
+                }
+                else {
+                    return ((LivrosRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Livros_AutorId"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1868,11 +1874,11 @@ namespace BibliotecaN {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public EmprestimosRow[] GetEmprestimosRows() {
-                if ((this.Table.ChildRelations["fk_Emprstimos_ClienteId"] == null)) {
+                if ((this.Table.ChildRelations["fk_Emprestimos_ClienteId"] == null)) {
                     return new EmprestimosRow[0];
                 }
                 else {
-                    return ((EmprestimosRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Emprstimos_ClienteId"])));
+                    return ((EmprestimosRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Emprestimos_ClienteId"])));
                 }
             }
         }
@@ -1952,28 +1958,17 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime DataDvolucao {
+            public System.DateTime DataDevolucao {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableEmprestimos.DataDvolucaoColumn]));
+                        return ((global::System.DateTime)(this[this.tableEmprestimos.DataDevolucaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DataDvolucao\' in table \'Emprestimos\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DataDevolucao\' in table \'Emprestimos\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableEmprestimos.DataDvolucaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public LivrosRow LivrosRow {
-                get {
-                    return ((LivrosRow)(this.GetParentRow(this.Table.ParentRelations["fk_Emprestimos_LivrosId"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["fk_Emprestimos_LivrosId"]);
+                    this[this.tableEmprestimos.DataDevolucaoColumn] = value;
                 }
             }
             
@@ -1981,10 +1976,21 @@ namespace BibliotecaN {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClientesRow ClientesRow {
                 get {
-                    return ((ClientesRow)(this.GetParentRow(this.Table.ParentRelations["fk_Emprstimos_ClienteId"])));
+                    return ((ClientesRow)(this.GetParentRow(this.Table.ParentRelations["fk_Emprestimos_ClienteId"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["fk_Emprstimos_ClienteId"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_Emprestimos_ClienteId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public LivrosRow LivrosRow {
+                get {
+                    return ((LivrosRow)(this.GetParentRow(this.Table.ParentRelations["fk_Emprestimos_LivroId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_Emprestimos_LivroId"]);
                 }
             }
             
@@ -2026,14 +2032,14 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDataDvolucaoNull() {
-                return this.IsNull(this.tableEmprestimos.DataDvolucaoColumn);
+            public bool IsDataDevolucaoNull() {
+                return this.IsNull(this.tableEmprestimos.DataDevolucaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDataDvolucaoNull() {
-                this[this.tableEmprestimos.DataDvolucaoColumn] = global::System.Convert.DBNull;
+            public void SetDataDevolucaoNull() {
+                this[this.tableEmprestimos.DataDevolucaoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2053,12 +2059,12 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.Guid LivrosId {
+            public System.Guid LivroId {
                 get {
-                    return ((global::System.Guid)(this[this.tableLivros.LivrosIdColumn]));
+                    return ((global::System.Guid)(this[this.tableLivros.LivroIdColumn]));
                 }
                 set {
-                    this[this.tableLivros.LivrosIdColumn] = value;
+                    this[this.tableLivros.LivroIdColumn] = value;
                 }
             }
             
@@ -2096,22 +2102,6 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Genero {
-                get {
-                    try {
-                        return ((string)(this[this.tableLivros.GeneroColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Genero\' in table \'Livros\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLivros.GeneroColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ISBN {
                 get {
                     try {
@@ -2144,6 +2134,17 @@ namespace BibliotecaN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutoresRow AutoresRow {
+                get {
+                    return ((AutoresRow)(this.GetParentRow(this.Table.ParentRelations["fk_Livros_AutorId"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_Livros_AutorId"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTituloNull() {
                 return this.IsNull(this.tableLivros.TituloColumn);
             }
@@ -2164,18 +2165,6 @@ namespace BibliotecaN {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAutorIdNull() {
                 this[this.tableLivros.AutorIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsGeneroNull() {
-                return this.IsNull(this.tableLivros.GeneroColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetGeneroNull() {
-                this[this.tableLivros.GeneroColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2205,11 +2194,11 @@ namespace BibliotecaN {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public EmprestimosRow[] GetEmprestimosRows() {
-                if ((this.Table.ChildRelations["fk_Emprestimos_LivrosId"] == null)) {
+                if ((this.Table.ChildRelations["fk_Emprestimos_LivroId"] == null)) {
                     return new EmprestimosRow[0];
                 }
                 else {
-                    return ((EmprestimosRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Emprestimos_LivrosId"])));
+                    return ((EmprestimosRow[])(base.GetChildRows(this.Table.ChildRelations["fk_Emprestimos_LivroId"])));
                 }
             }
         }
@@ -2351,7 +2340,7 @@ namespace BibliotecaN {
         }
     }
 }
-namespace BibliotecaN.BilbliotecaDataSetTableAdapters {
+namespace BibliotecaN.BibliotecaDataSetTableAdapters {
     
     
     /// <summary>
@@ -2523,7 +2512,7 @@ SELECT AutorId, Nome, DataNascimento, Nacionalidade FROM Autores WHERE (AutorId 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BilbliotecaConnectionString;
+            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BibliotecaConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2540,7 +2529,7 @@ SELECT AutorId, Nome, DataNascimento, Nacionalidade FROM Autores WHERE (AutorId 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BilbliotecaDataSet.AutoresDataTable dataTable) {
+        public virtual int Fill(BibliotecaDataSet.AutoresDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2553,9 +2542,9 @@ SELECT AutorId, Nome, DataNascimento, Nacionalidade FROM Autores WHERE (AutorId 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BilbliotecaDataSet.AutoresDataTable GetData() {
+        public virtual BibliotecaDataSet.AutoresDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BilbliotecaDataSet.AutoresDataTable dataTable = new BilbliotecaDataSet.AutoresDataTable();
+            BibliotecaDataSet.AutoresDataTable dataTable = new BibliotecaDataSet.AutoresDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2563,14 +2552,14 @@ SELECT AutorId, Nome, DataNascimento, Nacionalidade FROM Autores WHERE (AutorId 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet.AutoresDataTable dataTable) {
+        public virtual int Update(BibliotecaDataSet.AutoresDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet dataSet) {
+        public virtual int Update(BibliotecaDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Autores");
         }
         
@@ -2918,7 +2907,7 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BilbliotecaConnectionString;
+            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BibliotecaConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2935,7 +2924,7 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BilbliotecaDataSet.ClientesDataTable dataTable) {
+        public virtual int Fill(BibliotecaDataSet.ClientesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2948,9 +2937,9 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BilbliotecaDataSet.ClientesDataTable GetData() {
+        public virtual BibliotecaDataSet.ClientesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BilbliotecaDataSet.ClientesDataTable dataTable = new BilbliotecaDataSet.ClientesDataTable();
+            BibliotecaDataSet.ClientesDataTable dataTable = new BibliotecaDataSet.ClientesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2958,14 +2947,14 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet.ClientesDataTable dataTable) {
+        public virtual int Update(BibliotecaDataSet.ClientesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet dataSet) {
+        public virtual int Update(BibliotecaDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Clientes");
         }
         
@@ -3269,11 +3258,11 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
             tableMapping.ColumnMappings.Add("LivroId", "LivroId");
             tableMapping.ColumnMappings.Add("ClienteId", "ClienteId");
             tableMapping.ColumnMappings.Add("DataEmprestimo", "DataEmprestimo");
-            tableMapping.ColumnMappings.Add("DataDvolucao", "DataDvolucao");
+            tableMapping.ColumnMappings.Add("DataDevolucao", "DataDevolucao");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Emprestimos] WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDvolucao = 1 AND [DataDvolucao] IS NULL) OR ([DataDvolucao] = @Original_DataDvolucao)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Emprestimos] WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDevolucao = 1 AND [DataDevolucao] IS NULL) OR ([DataDevolucao] = @Original_DataDevolucao)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmprestimoId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmprestimoId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LivroId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3282,28 +3271,28 @@ SELECT ClienteId, Nome, Endereco, Telefone FROM Clientes WHERE (ClienteId = @Cli
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClienteId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClienteId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataEmprestimo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEmprestimo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataEmprestimo", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEmprestimo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataDvolucao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDvolucao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataDvolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDvolucao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataDevolucao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDevolucao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataDevolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDevolucao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Emprestimos] ([EmprestimoId], [LivroId], [ClienteId], [DataEmprestimo], [DataDvolucao]) VALUES (@EmprestimoId, @LivroId, @ClienteId, @DataEmprestimo, @DataDvolucao);
-SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Emprestimos] ([EmprestimoId], [LivroId], [ClienteId], [DataEmprestimo], [DataDevolucao]) VALUES (@EmprestimoId, @LivroId, @ClienteId, @DataEmprestimo, @DataDevolucao);
+SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmprestimoId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmprestimoId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClienteId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClienteId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataEmprestimo", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEmprestimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataDvolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDvolucao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataDevolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDevolucao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Emprestimos] SET [EmprestimoId] = @EmprestimoId, [LivroId] = @LivroId, [ClienteId] = @ClienteId, [DataEmprestimo] = @DataEmprestimo, [DataDvolucao] = @DataDvolucao WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDvolucao = 1 AND [DataDvolucao] IS NULL) OR ([DataDvolucao] = @Original_DataDvolucao)));
-SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Emprestimos] SET [EmprestimoId] = @EmprestimoId, [LivroId] = @LivroId, [ClienteId] = @ClienteId, [DataEmprestimo] = @DataEmprestimo, [DataDevolucao] = @DataDevolucao WHERE (([EmprestimoId] = @Original_EmprestimoId) AND ((@IsNull_LivroId = 1 AND [LivroId] IS NULL) OR ([LivroId] = @Original_LivroId)) AND ((@IsNull_ClienteId = 1 AND [ClienteId] IS NULL) OR ([ClienteId] = @Original_ClienteId)) AND ((@IsNull_DataEmprestimo = 1 AND [DataEmprestimo] IS NULL) OR ([DataEmprestimo] = @Original_DataEmprestimo)) AND ((@IsNull_DataDevolucao = 1 AND [DataDevolucao] IS NULL) OR ([DataDevolucao] = @Original_DataDevolucao)));
+SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao FROM Emprestimos WHERE (EmprestimoId = @EmprestimoId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmprestimoId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmprestimoId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClienteId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClienteId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataEmprestimo", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEmprestimo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataDvolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDvolucao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DataDevolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDevolucao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmprestimoId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmprestimoId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LivroId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3311,15 +3300,15 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ClienteId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClienteId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataEmprestimo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEmprestimo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataEmprestimo", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataEmprestimo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataDvolucao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDvolucao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataDvolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDvolucao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DataDevolucao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDevolucao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DataDevolucao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DataDevolucao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BilbliotecaConnectionString;
+            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BibliotecaConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3328,8 +3317,8 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM dbo.Em" +
-                "prestimos";
+            this._commandCollection[0].CommandText = "SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao FROM dbo.E" +
+                "mprestimos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3337,7 +3326,7 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BilbliotecaDataSet.EmprestimosDataTable dataTable) {
+        public virtual int Fill(BibliotecaDataSet.EmprestimosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3350,9 +3339,9 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BilbliotecaDataSet.EmprestimosDataTable GetData() {
+        public virtual BibliotecaDataSet.EmprestimosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BilbliotecaDataSet.EmprestimosDataTable dataTable = new BilbliotecaDataSet.EmprestimosDataTable();
+            BibliotecaDataSet.EmprestimosDataTable dataTable = new BibliotecaDataSet.EmprestimosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3360,14 +3349,14 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet.EmprestimosDataTable dataTable) {
+        public virtual int Update(BibliotecaDataSet.EmprestimosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet dataSet) {
+        public virtual int Update(BibliotecaDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Emprestimos");
         }
         
@@ -3390,7 +3379,7 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid Original_EmprestimoId, global::System.Nullable<global::System.Guid> Original_LivroId, global::System.Nullable<global::System.Guid> Original_ClienteId, global::System.Nullable<global::System.DateTime> Original_DataEmprestimo, global::System.Nullable<global::System.DateTime> Original_DataDvolucao) {
+        public virtual int Delete(System.Guid Original_EmprestimoId, global::System.Nullable<global::System.Guid> Original_LivroId, global::System.Nullable<global::System.Guid> Original_ClienteId, global::System.Nullable<global::System.DateTime> Original_DataEmprestimo, global::System.Nullable<global::System.DateTime> Original_DataDevolucao) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(Original_EmprestimoId));
             if ((Original_LivroId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -3416,9 +3405,9 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_DataDvolucao.HasValue == true)) {
+            if ((Original_DataDevolucao.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_DataDvolucao.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_DataDevolucao.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -3444,7 +3433,7 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid EmprestimoId, global::System.Nullable<global::System.Guid> LivroId, global::System.Nullable<global::System.Guid> ClienteId, global::System.Nullable<global::System.DateTime> DataEmprestimo, global::System.Nullable<global::System.DateTime> DataDvolucao) {
+        public virtual int Insert(System.Guid EmprestimoId, global::System.Nullable<global::System.Guid> LivroId, global::System.Nullable<global::System.Guid> ClienteId, global::System.Nullable<global::System.DateTime> DataEmprestimo, global::System.Nullable<global::System.DateTime> DataDevolucao) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(EmprestimoId));
             if ((LivroId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((System.Guid)(LivroId.Value));
@@ -3464,8 +3453,8 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((DataDvolucao.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(DataDvolucao.Value));
+            if ((DataDevolucao.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(DataDevolucao.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -3490,7 +3479,7 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.Guid EmprestimoId, global::System.Nullable<global::System.Guid> LivroId, global::System.Nullable<global::System.Guid> ClienteId, global::System.Nullable<global::System.DateTime> DataEmprestimo, global::System.Nullable<global::System.DateTime> DataDvolucao, System.Guid Original_EmprestimoId, global::System.Nullable<global::System.Guid> Original_LivroId, global::System.Nullable<global::System.Guid> Original_ClienteId, global::System.Nullable<global::System.DateTime> Original_DataEmprestimo, global::System.Nullable<global::System.DateTime> Original_DataDvolucao) {
+        public virtual int Update(System.Guid EmprestimoId, global::System.Nullable<global::System.Guid> LivroId, global::System.Nullable<global::System.Guid> ClienteId, global::System.Nullable<global::System.DateTime> DataEmprestimo, global::System.Nullable<global::System.DateTime> DataDevolucao, System.Guid Original_EmprestimoId, global::System.Nullable<global::System.Guid> Original_LivroId, global::System.Nullable<global::System.Guid> Original_ClienteId, global::System.Nullable<global::System.DateTime> Original_DataEmprestimo, global::System.Nullable<global::System.DateTime> Original_DataDevolucao) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(EmprestimoId));
             if ((LivroId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((System.Guid)(LivroId.Value));
@@ -3510,8 +3499,8 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((DataDvolucao.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(DataDvolucao.Value));
+            if ((DataDevolucao.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(DataDevolucao.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -3541,9 +3530,9 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_DataDvolucao.HasValue == true)) {
+            if ((Original_DataDevolucao.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_DataDvolucao.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_DataDevolucao.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
@@ -3569,8 +3558,8 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.Guid> LivroId, global::System.Nullable<global::System.Guid> ClienteId, global::System.Nullable<global::System.DateTime> DataEmprestimo, global::System.Nullable<global::System.DateTime> DataDvolucao, System.Guid Original_EmprestimoId, global::System.Nullable<global::System.Guid> Original_LivroId, global::System.Nullable<global::System.Guid> Original_ClienteId, global::System.Nullable<global::System.DateTime> Original_DataEmprestimo, global::System.Nullable<global::System.DateTime> Original_DataDvolucao) {
-            return this.Update(Original_EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao, Original_EmprestimoId, Original_LivroId, Original_ClienteId, Original_DataEmprestimo, Original_DataDvolucao);
+        public virtual int Update(global::System.Nullable<global::System.Guid> LivroId, global::System.Nullable<global::System.Guid> ClienteId, global::System.Nullable<global::System.DateTime> DataEmprestimo, global::System.Nullable<global::System.DateTime> DataDevolucao, System.Guid Original_EmprestimoId, global::System.Nullable<global::System.Guid> Original_LivroId, global::System.Nullable<global::System.Guid> Original_ClienteId, global::System.Nullable<global::System.DateTime> Original_DataEmprestimo, global::System.Nullable<global::System.DateTime> Original_DataDevolucao) {
+            return this.Update(Original_EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDevolucao, Original_EmprestimoId, Original_LivroId, Original_ClienteId, Original_DataEmprestimo, Original_DataDevolucao);
         }
     }
     
@@ -3695,57 +3684,51 @@ SELECT EmprestimoId, LivroId, ClienteId, DataEmprestimo, DataDvolucao FROM Empre
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Livros";
-            tableMapping.ColumnMappings.Add("LivrosId", "LivrosId");
+            tableMapping.ColumnMappings.Add("LivroId", "LivroId");
             tableMapping.ColumnMappings.Add("Titulo", "Titulo");
             tableMapping.ColumnMappings.Add("AutorId", "AutorId");
-            tableMapping.ColumnMappings.Add("Genero", "Genero");
             tableMapping.ColumnMappings.Add("ISBN", "ISBN");
             tableMapping.ColumnMappings.Add("AnoPublicacao", "AnoPublicacao");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Livros] WHERE (([LivrosId] = @Original_LivrosId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_Genero = 1 AND [Genero] IS NULL) OR ([Genero] = @Original_Genero)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Livros] WHERE (([LivroId] = @Original_LivroId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LivrosId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivrosId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Titulo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Titulo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Titulo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Titulo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AutorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutorId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AutorId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Genero", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Genero", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Genero", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Genero", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AnoPublicacao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnoPublicacao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AnoPublicacao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnoPublicacao", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Livros] ([LivrosId], [Titulo], [AutorId], [Genero], [ISBN], [AnoPublicacao]) VALUES (@LivrosId, @Titulo, @AutorId, @Genero, @ISBN, @AnoPublicacao);
-SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE (LivrosId = @LivrosId)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Livros] ([LivroId], [Titulo], [AutorId], [ISBN], [AnoPublicaca" +
+                "o]) VALUES (@LivroId, @Titulo, @AutorId, @ISBN, @AnoPublicacao);\r\nSELECT LivroId" +
+                ", Titulo, AutorId, ISBN, AnoPublicacao FROM Livros WHERE (LivroId = @LivroId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LivrosId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivrosId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Titulo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Titulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutorId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Genero", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Genero", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnoPublicacao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnoPublicacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Livros] SET [LivrosId] = @LivrosId, [Titulo] = @Titulo, [AutorId] = @AutorId, [Genero] = @Genero, [ISBN] = @ISBN, [AnoPublicacao] = @AnoPublicacao WHERE (([LivrosId] = @Original_LivrosId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_Genero = 1 AND [Genero] IS NULL) OR ([Genero] = @Original_Genero)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)));
-SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE (LivrosId = @LivrosId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Livros] SET [LivroId] = @LivroId, [Titulo] = @Titulo, [AutorId] = @AutorId, [ISBN] = @ISBN, [AnoPublicacao] = @AnoPublicacao WHERE (([LivroId] = @Original_LivroId) AND ((@IsNull_Titulo = 1 AND [Titulo] IS NULL) OR ([Titulo] = @Original_Titulo)) AND ((@IsNull_AutorId = 1 AND [AutorId] IS NULL) OR ([AutorId] = @Original_AutorId)) AND ((@IsNull_ISBN = 1 AND [ISBN] IS NULL) OR ([ISBN] = @Original_ISBN)) AND ((@IsNull_AnoPublicacao = 1 AND [AnoPublicacao] IS NULL) OR ([AnoPublicacao] = @Original_AnoPublicacao)));
+SELECT LivroId, Titulo, AutorId, ISBN, AnoPublicacao FROM Livros WHERE (LivroId = @LivroId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LivrosId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivrosId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Titulo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Titulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutorId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutorId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Genero", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Genero", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AnoPublicacao", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnoPublicacao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LivrosId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivrosId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LivroId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LivroId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Titulo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Titulo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Titulo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Titulo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AutorId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutorId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AutorId", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutorId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Genero", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Genero", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Genero", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Genero", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ISBN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AnoPublicacao", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AnoPublicacao", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3756,7 +3739,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BilbliotecaConnectionString;
+            this._connection.ConnectionString = global::BibliotecaN.Properties.Settings.Default.BibliotecaConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3765,7 +3748,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM dbo.Livros";
+            this._commandCollection[0].CommandText = "SELECT LivroId, Titulo, AutorId, ISBN, AnoPublicacao FROM dbo.Livros";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3773,7 +3756,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BilbliotecaDataSet.LivrosDataTable dataTable) {
+        public virtual int Fill(BibliotecaDataSet.LivrosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3786,9 +3769,9 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BilbliotecaDataSet.LivrosDataTable GetData() {
+        public virtual BibliotecaDataSet.LivrosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BilbliotecaDataSet.LivrosDataTable dataTable = new BilbliotecaDataSet.LivrosDataTable();
+            BibliotecaDataSet.LivrosDataTable dataTable = new BibliotecaDataSet.LivrosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3796,14 +3779,14 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet.LivrosDataTable dataTable) {
+        public virtual int Update(BibliotecaDataSet.LivrosDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BilbliotecaDataSet dataSet) {
+        public virtual int Update(BibliotecaDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Livros");
         }
         
@@ -3826,8 +3809,8 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid Original_LivrosId, string Original_Titulo, global::System.Nullable<global::System.Guid> Original_AutorId, string Original_Genero, global::System.Nullable<int> Original_ISBN, global::System.Nullable<global::System.DateTime> Original_AnoPublicacao) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(Original_LivrosId));
+        public virtual int Delete(System.Guid Original_LivroId, string Original_Titulo, global::System.Nullable<global::System.Guid> Original_AutorId, global::System.Nullable<int> Original_ISBN, global::System.Nullable<global::System.DateTime> Original_AnoPublicacao) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(Original_LivroId));
             if ((Original_Titulo == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -3844,29 +3827,21 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_Genero == null)) {
+            if ((Original_ISBN.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ISBN.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Genero));
-            }
-            if ((Original_ISBN.HasValue == true)) {
+            if ((Original_AnoPublicacao.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_ISBN.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_AnoPublicacao.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_AnoPublicacao.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_AnoPublicacao.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3888,8 +3863,8 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid LivrosId, string Titulo, global::System.Nullable<global::System.Guid> AutorId, string Genero, global::System.Nullable<int> ISBN, global::System.Nullable<global::System.DateTime> AnoPublicacao) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(LivrosId));
+        public virtual int Insert(System.Guid LivroId, string Titulo, global::System.Nullable<global::System.Guid> AutorId, global::System.Nullable<int> ISBN, global::System.Nullable<global::System.DateTime> AnoPublicacao) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(LivroId));
             if ((Titulo == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -3902,23 +3877,17 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Genero == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((ISBN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ISBN.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Genero));
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((ISBN.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ISBN.Value));
+            if ((AnoPublicacao.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(AnoPublicacao.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((AnoPublicacao.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(AnoPublicacao.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3940,8 +3909,8 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.Guid LivrosId, string Titulo, global::System.Nullable<global::System.Guid> AutorId, string Genero, global::System.Nullable<int> ISBN, global::System.Nullable<global::System.DateTime> AnoPublicacao, System.Guid Original_LivrosId, string Original_Titulo, global::System.Nullable<global::System.Guid> Original_AutorId, string Original_Genero, global::System.Nullable<int> Original_ISBN, global::System.Nullable<global::System.DateTime> Original_AnoPublicacao) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(LivrosId));
+        public virtual int Update(System.Guid LivroId, string Titulo, global::System.Nullable<global::System.Guid> AutorId, global::System.Nullable<int> ISBN, global::System.Nullable<global::System.DateTime> AnoPublicacao, System.Guid Original_LivroId, string Original_Titulo, global::System.Nullable<global::System.Guid> Original_AutorId, global::System.Nullable<int> Original_ISBN, global::System.Nullable<global::System.DateTime> Original_AnoPublicacao) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(LivroId));
             if ((Titulo == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -3954,64 +3923,50 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Genero == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((ISBN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ISBN.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Genero));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((ISBN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ISBN.Value));
+            if ((AnoPublicacao.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(AnoPublicacao.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((AnoPublicacao.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(AnoPublicacao.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.Guid)(Original_LivrosId));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.Guid)(Original_LivroId));
             if ((Original_Titulo == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Titulo));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Titulo));
             }
             if ((Original_AutorId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.Guid)(Original_AutorId.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.Guid)(Original_AutorId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Genero == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Genero));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_ISBN.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ISBN.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_ISBN.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_AnoPublicacao.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_AnoPublicacao.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_AnoPublicacao.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4033,8 +3988,8 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Titulo, global::System.Nullable<global::System.Guid> AutorId, string Genero, global::System.Nullable<int> ISBN, global::System.Nullable<global::System.DateTime> AnoPublicacao, System.Guid Original_LivrosId, string Original_Titulo, global::System.Nullable<global::System.Guid> Original_AutorId, string Original_Genero, global::System.Nullable<int> Original_ISBN, global::System.Nullable<global::System.DateTime> Original_AnoPublicacao) {
-            return this.Update(Original_LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao, Original_LivrosId, Original_Titulo, Original_AutorId, Original_Genero, Original_ISBN, Original_AnoPublicacao);
+        public virtual int Update(string Titulo, global::System.Nullable<global::System.Guid> AutorId, global::System.Nullable<int> ISBN, global::System.Nullable<global::System.DateTime> AnoPublicacao, System.Guid Original_LivroId, string Original_Titulo, global::System.Nullable<global::System.Guid> Original_AutorId, global::System.Nullable<int> Original_ISBN, global::System.Nullable<global::System.DateTime> Original_AnoPublicacao) {
+            return this.Update(Original_LivroId, Titulo, AutorId, ISBN, AnoPublicacao, Original_LivroId, Original_Titulo, Original_AutorId, Original_ISBN, Original_AnoPublicacao);
         }
     }
     
@@ -4198,8 +4153,17 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(BilbliotecaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(BibliotecaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._autoresTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Autores.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._autoresTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._clientesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Clientes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -4215,15 +4179,6 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._livrosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._autoresTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Autores.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._autoresTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4244,8 +4199,16 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(BilbliotecaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(BibliotecaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._autoresTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Autores.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._autoresTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._clientesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Clientes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -4259,14 +4222,6 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._livrosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._autoresTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Autores.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._autoresTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4286,21 +4241,13 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(BilbliotecaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(BibliotecaDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._emprestimosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Emprestimos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._emprestimosTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._autoresTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Autores.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._autoresTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4317,6 +4264,14 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._clientesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._autoresTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Autores.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._autoresTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4352,7 +4307,7 @@ SELECT LivrosId, Titulo, AutorId, Genero, ISBN, AnoPublicacao FROM Livros WHERE 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(BilbliotecaDataSet dataSet) {
+        public virtual int UpdateAll(BibliotecaDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
